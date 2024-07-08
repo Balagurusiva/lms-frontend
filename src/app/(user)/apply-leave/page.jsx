@@ -7,19 +7,19 @@ import { getEmp_leave_balence } from '../../../actions';
 
 const Page = () => {
 
-    const [leave_balence, setLeave_balence] = useState([]) 
-    
+    const [leave_balence, setLeave_balence] = useState([])
+
     const fetchLeaveBalanceById = async () => {
-        const resData = await getEmp_leave_balence(localStorage.getItem("user_id") || null)
+        const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null)
         setLeave_balence([resData])
-    } 
+    }
 
     useEffect(() => {
         // const fetchData = async () => {
-        //     const resData = await getEmp_leave_balence(localStorage.getItem("user_id") || null)
+        //     const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null)
         //     setLeave_balence([resData])
         // }
-        fetchLeaveBalanceById ()
+        fetchLeaveBalanceById()
     }, [])
 
 
@@ -52,7 +52,7 @@ const Page = () => {
             </div>
             <div className="form-container w-full border-2 p-4 rounded-md shadow-lg">
                 <p className='text-2xl font-bold mb-6'>Leave Application</p>
-                <LeaveForm fetchLeaveBalanceById  = {fetchLeaveBalanceById } />
+                <LeaveForm fetchLeaveBalanceById={fetchLeaveBalanceById} />
             </div>
         </div>
     );

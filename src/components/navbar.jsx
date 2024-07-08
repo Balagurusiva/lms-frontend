@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
 
- import {capitalizeWords} from "../utils/index"
+import { capitalizeWords } from "../utils/index"
 
 
 
@@ -30,11 +30,11 @@ const Navbar = () => {
 
             </div>
 
-            <p className='text-[18px] font-semibold'>{localStorage.getItem("user_name") ?capitalizeWords(localStorage.getItem("user_name"))  :"user name"}</p>
+            <p className='text-[18px] font-semibold'>{window.localStorage.getItem("user_name") ? capitalizeWords(window.localStorage.getItem("user_name")) : "user name"}</p>
 
 
             <DropdownMenu>
-                <DropdownMenuTrigger style={{outline:0}}>
+                <DropdownMenuTrigger style={{ outline: 0 }}>
                     <div className="logo h-[20px] w-[20px] py-[10px] relative object-contain">
 
                         <Image src='/imgs/menu-dots-vertical.svg' alt='menu' layout="fill" objectFit="contain" className=" h-[20px]   object-contian" />
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                     <DropdownMenuItem>{localStorage.getItem('email') ?  localStorage.getItem('email'): "Work Mail"}</DropdownMenuItem>
+                    <DropdownMenuItem>{window.localStorage.getItem('email') ? window.localStorage.getItem('email') : "Work Mail"}</DropdownMenuItem>
                     <DropdownMenuItem>Change Password</DropdownMenuItem>
                     <DropdownMenuItem>Logout</DropdownMenuItem>
 

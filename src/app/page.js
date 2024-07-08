@@ -43,21 +43,21 @@ const Signin = () => {
                     throw new Error('Network response was not ok');
                 }
 
- 
-                const data = await response.json(); 
+
+                const data = await response.json();
                 console.log(data)
-                localStorage.setItem("user_name", data.emp_name);
-                localStorage.setItem("jwt", data.token); 
-                localStorage.setItem("user_id",data.user_id);
-                localStorage.setItem("user-type", data.user_type);
-                localStorage.setItem("work_email", data.email); 
-                localStorage.setItem("work_email", data.work_email)
-                if(data.emp_type === 'admin'){
+                window.localStorage.setItem("user_name", data.emp_name);
+                window.localStorage.setItem("jwt", data.token);
+                window.localStorage.setItem("user_id", data.user_id);
+                window.localStorage.setItem("user-type", data.user_type);
+                window.localStorage.setItem("work_email", data.email);
+                window.localStorage.setItem("work_email", data.work_email)
+                if (data.emp_type === 'admin') {
                     router.push('/admin/dashboard'); // Use router.push for client-side navigation
-                }else{
+                } else {
                     router.push('/dashboard')
                 }
-                 
+
 
             } catch (error) {
                 console.error('Error:', error);

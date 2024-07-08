@@ -51,7 +51,7 @@ export function DataTable({ data }) {
 
     const handleEditTask = (task, task_date) => {
         console.log(task_date)
-        setCurrentTask({ ...task, task_date, user_id: localStorage.getItem("user_id") });
+        setCurrentTask({ ...task, task_date, user_id: window.localStorage.getItem("user_id") });
         setShow(true);
     };
 

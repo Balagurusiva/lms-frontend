@@ -10,33 +10,33 @@ import {
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
 
-import {change_user_role, getEmp_detail_by_id} from '../../actions'
+import { change_user_role, getEmp_detail_by_id } from '../../actions'
 
-const RoleSetting =  () => {
+const RoleSetting = () => {
     const user_id = window.localStorage.getItem('user_id')
-     
 
-    useEffect( () => {
-        const fetchUser = async ( ) => {
-            const resData =await  getEmp_detail_by_id(user_id)
-            setRole(resData.role) 
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const resData = await getEmp_detail_by_id(user_id)
+            setRole(resData.role)
         }
 
         fetchUser()
     })
 
 
-    const handleRole = async (str) =>{
+    const handleRole = async (str) => {
         setRole(str)
-      const userRole = {
-        userId:user_id,
-        newRole : str
-      } 
+        const userRole = {
+            userId: user_id,
+            newRole: str
+        }
 
-      const res = await change_user_role(userRole)
+        const res = await change_user_role(userRole)
 
     }
- 
+
     const [role, setRole] = useState('Employee')
     return (
         <div>
