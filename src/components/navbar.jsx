@@ -26,7 +26,7 @@ const Navbar = () => {
 
             <div className="logo h-[25px] w-[25px] py-[10px] relative   object-contain">
 
-                <Image src='/imgs/user.svg' layout="fill" objectFit="contain" className=" h-[25px]  object-contian" />
+                <Image src='/imgs/user.svg' alt='user' layout="fill" objectFit="contain" className=" h-[25px]  object-contian" />
 
             </div>
 

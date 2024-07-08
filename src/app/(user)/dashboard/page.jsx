@@ -8,7 +8,7 @@ import {
 } from "../../../actions/index";
 import LeaveHistoryOfUser from "../../../components/leave-history-of-user/LeaveHistoryOfUser";
 
-const page = () => {
+const Page = () => {
   const user_id = localStorage.getItem("user_id") || null;
   const [resData, setResData] = useState([]); 
   useEffect(() => {
@@ -90,4 +90,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
