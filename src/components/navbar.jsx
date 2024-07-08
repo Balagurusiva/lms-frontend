@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
     DropdownMenu,
@@ -19,6 +19,12 @@ import { capitalizeWords } from "../utils/index"
 
 const Navbar = () => {
 
+    let user_name,email
+    useEffect(() => {
+        user_name = localStorage.getItem("user_name")
+        email = localStorage.getItem("email")
+    },[])
+
 
     return (
         <nav className='h-[70px] sticky top-0 flex gap-2 items-center justify-end px-5 w-full  shadow-sm z-10' style={{ backgroundColor: 'rgb(247, 249, 253)' }}>
@@ -30,7 +36,7 @@ const Navbar = () => {
 
             </div>
 
-            <p className='text-[18px] font-semibold'>{window.localStorage.getItem("user_name") ? capitalizeWords(window.localStorage.getItem("user_name")) : "user name"}</p>
+            <p className='text-[18px] font-semibold'>{user_name ? capitalizeWords(user_name) : "user name"}</p>
 
 
             <DropdownMenu>
@@ -42,7 +48,7 @@ const Navbar = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                    <DropdownMenuItem>{window.localStorage.getItem('email') ? window.localStorage.getItem('email') : "Work Mail"}</DropdownMenuItem>
+                    <DropdownMenuItem>{ email ?email: "Work Mail"}</DropdownMenuItem>
                     <DropdownMenuItem>Change Password</DropdownMenuItem>
                     <DropdownMenuItem>Logout</DropdownMenuItem>
 

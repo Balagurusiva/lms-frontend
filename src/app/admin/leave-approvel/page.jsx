@@ -26,7 +26,7 @@ const Page = () => {
         setLeaveData(data);
     };
 
-    useEffect(() => {
+    useEffect(() => { 
         fetchLeaveData();
     }, []);
 

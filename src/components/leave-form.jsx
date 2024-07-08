@@ -58,9 +58,13 @@ const LeaveForm = ({ fetchLeaveBalanceById }) => {
     const [totalDays, setTotalDays] = useState(0);
     const [leaveBalance, setLeaveBalance] = useState({});
 
+
+    let user_id, user_name
     useEffect(() => {
+        user_id = localStorage.getItem("user_id")
+        user_name = localStorage.getItem("user_name")
         const fetchData = async () => {
-            const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null);
+            const resData = await getEmp_leave_balence(user_id || null);
             setLeaveBalance(resData);
         };
         fetchData();
@@ -108,8 +112,8 @@ const LeaveForm = ({ fetchLeaveBalanceById }) => {
         }
 
         data.total_days = totalDaysRequested;
-        data.user_id = window.localStorage.getItem("user_id") || null;
-        data.emp_name = window.localStorage.getItem("user_name") || null;
+        data.user_id =user_id|| null;
+        data.emp_name = user_name || null;
 
         const result = await postLeave_req(data);
 

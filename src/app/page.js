@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoIosEyeOff, IoIosEye } from "react-icons/io";
 import { useRouter } from 'next/navigation'; // Correct hook for client-side routing
 
@@ -45,13 +45,15 @@ const Signin = () => {
 
 
                 const data = await response.json();
-                console.log(data)
-                window.localStorage.setItem("user_name", data.emp_name);
-                window.localStorage.setItem("jwt", data.token);
-                window.localStorage.setItem("user_id", data.user_id);
-                window.localStorage.setItem("user-type", data.user_type);
-                window.localStorage.setItem("work_email", data.email);
-                window.localStorage.setItem("work_email", data.work_email)
+
+                useEffect(() => {
+                    window.localStorage.setItem("user_name", data.emp_name);
+                    window.localStorage.setItem("jwt", data.token);
+                    window.localStorage.setItem("user_id", data.user_id);
+                    window.localStorage.setItem("user-type", data.user_type);
+                    window.localStorage.setItem("work_email", data.email);
+                    window.localStorage.setItem("work_email", data.work_email)
+                }, [])
                 if (data.emp_type === 'admin') {
                     router.push('/admin/dashboard'); // Use router.push for client-side navigation
                 } else {

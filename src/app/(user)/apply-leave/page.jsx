@@ -6,21 +6,24 @@ import LeaveForm from '../../../components/leave-form';
 import { getEmp_leave_balence } from '../../../actions';
 
 const Page = () => {
-
-    const [leave_balence, setLeave_balence] = useState([])
-
-    const fetchLeaveBalanceById = async () => {
-        const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null)
-        setLeave_balence([resData])
-    }
-
+    let user_id
     useEffect(() => {
         // const fetchData = async () => {
         //     const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null)
         //     setLeave_balence([resData])
         // }
+         user_id
         fetchLeaveBalanceById()
     }, [])
+
+    const [leave_balence, setLeave_balence] = useState([])
+
+    const fetchLeaveBalanceById = async () => {
+        const resData = await getEmp_leave_balence(user_id || null)
+        setLeave_balence([resData])
+    }
+
+     
 
 
 

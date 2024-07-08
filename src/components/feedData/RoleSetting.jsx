@@ -13,10 +13,11 @@ import {
 import { change_user_role, getEmp_detail_by_id } from '../../actions'
 
 const RoleSetting = () => {
-    const user_id = window.localStorage.getItem('user_id')
+    let user_id  
 
 
     useEffect(() => {
+        user_id = window.localStorage.getItem('user_id')
         const fetchUser = async () => {
             const resData = await getEmp_detail_by_id(user_id)
             setRole(resData.role)
