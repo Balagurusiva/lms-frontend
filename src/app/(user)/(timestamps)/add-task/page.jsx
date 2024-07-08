@@ -73,8 +73,9 @@ const Calendar = () => {
         const response = await getAllTask();
         setAllTasks(response);
     };
-
+    let user_id
     useEffect(() => {
+        user_id = window.localStorage.getItem("user_id")
         fetchData();
     }, []);
 
@@ -84,7 +85,7 @@ const Calendar = () => {
             task_date: selectedDate,
             task_name: task,
             task_time: time,
-            user_id: localStorage.getItem('user_id'),
+            user_id ,
         };
         try {
             const res = await postTask(newTask);

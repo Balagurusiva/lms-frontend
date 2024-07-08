@@ -30,7 +30,7 @@ const Navbar = () => {
 
             </div>
 
-            <p className='text-[18px] font-semibold'>{localStorage.getItem("user_name") ?capitalizeWords(localStorage.getItem("user_name"))  :"user name"}</p>
+            <p className='text-[18px] font-semibold'>{window.localStorage.getItem("user_name") ?capitalizeWords(window.localStorage.getItem("user_name"))  :"user name"}</p>
 
 
             <DropdownMenu>
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                     <DropdownMenuItem>{localStorage.getItem('email') ?  localStorage.getItem('email'): "Work Mail"}</DropdownMenuItem>
+                     <DropdownMenuItem>{window.localStorage.getItem('email') ?  window.localStorage.getItem('email'): "Work Mail"}</DropdownMenuItem>
                     <DropdownMenuItem>Change Password</DropdownMenuItem>
                     <DropdownMenuItem>Logout</DropdownMenuItem>
 

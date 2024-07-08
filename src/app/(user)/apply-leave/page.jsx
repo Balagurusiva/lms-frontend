@@ -10,7 +10,7 @@ const Page = () => {
     const [leave_balence, setLeave_balence] = useState([]) 
     
     const fetchLeaveBalanceById = async () => {
-        const resData = await getEmp_leave_balence(localStorage.getItem("user_id") || null)
+        const resData = await getEmp_leave_balence(window.localStorage.getItem("user_id") || null)
         setLeave_balence([resData])
     } 
 

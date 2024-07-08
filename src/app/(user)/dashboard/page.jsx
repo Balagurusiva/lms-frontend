@@ -9,7 +9,7 @@ import {
 import LeaveHistoryOfUser from "../../../components/leave-history-of-user/LeaveHistoryOfUser";
 
 const Page = () => {
-  const user_id = localStorage.getItem("user_id") || null;
+  const user_id = window.localStorage.getItem("user_id") || null;
   const [resData, setResData] = useState([]); 
   useEffect(() => {
     const fetchData = async () => { 
