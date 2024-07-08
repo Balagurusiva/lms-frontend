@@ -11,7 +11,7 @@ import { Button } from '../../../../components/ui/button'
 import { columns } from './column'
 import { DataTable } from './data-table';
 
-const page = () => {
+const Page = () => {
 
     //data fetching
     const [allTasks, setAllTasks] = useState([]);
@@ -121,4 +121,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
