@@ -8,7 +8,7 @@ import { capitalizeWords } from '../../../../utils';
 
  
 
-const page = async ({ params }) => {
+const Page = async ({ params }) => {
 
 
 
@@ -61,4 +61,4 @@ console.log("check")
     )
 }
 
-export default page
+export default Page
